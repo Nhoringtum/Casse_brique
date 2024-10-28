@@ -3,7 +3,7 @@
 Brique::Brique()
 {
 	std::cout << "Brique created" << std::endl;
-	set_sprite();
+	set_sprite(m_texture);
 };
 
 Brique::Brique(sf::Vector2f pos, sf::Vector2f dir, sf::Vector2f size, float spd)
@@ -12,7 +12,7 @@ Brique::Brique(sf::Vector2f pos, sf::Vector2f dir, sf::Vector2f size, float spd)
 	m_dir = dir;
 	m_size = size;
 	m_spd = spd;
-	set_sprite();
+	set_sprite(m_texture);
 };
 
 void Brique::Move(sf::Vector2f dir)
@@ -28,16 +28,8 @@ sf::Vector2f Brique::get_pos()
 	return (m_pos);
 };
 
-void Brique::set_sprite()
+void Brique::set_sprite(sf::Texture texture)
 {
-	sf::Texture texture;
-
-	if (!texture.loadFromFile("brick.png"))
-	{
-		std::cout << "Could nopt load texture" << std::endl;
-		return;
-	}
-
 	m_sprite.setTexture(texture);
 	m_sprite.setScale(sf::Vector2f(0.06f, 0.06f));
 };

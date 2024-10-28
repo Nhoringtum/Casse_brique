@@ -12,7 +12,7 @@ public:
 	void Move(sf::Vector2f dir);
 	void set_pos(sf::Vector2f pos);
 	sf::Vector2f get_pos();
-	void set_sprite();
+	void set_sprite(sf::Texture texture);
 };
 
 #endif

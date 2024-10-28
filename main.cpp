@@ -31,10 +31,11 @@ int main()
 
     sf::Sprite ballSprite;
     ballSprite.setTexture(texture);
-    ballSprite.setScale(sf::Vector2f(0.06f, 0.06f));
+    //ballSprite.setTextureRect(sf::IntRect(10, 10, 32, 32));
 
-   
-
+    ballSprite.scale(0.5f, 0.5f);
+    ballSprite.setPosition(window.getSize().x / 2, window.getSize().y / 2);
+    ballSprite.setOrigin(sf::Vector2f(ballSprite.getPosition().x + ballSprite.getScale().x / 2, ballSprite.getPosition().y + ballSprite.getScale().y / 2));
     while (window.isOpen())
     {
         sf::Event event;
@@ -46,6 +47,9 @@ int main()
 
         window.clear();
         window.draw(ballSprite);
+        ballSprite.move(0.002f, 0.f);
+        ballSprite.rotate(0.02f);
+        
         window.display();
     }
     return 0;
